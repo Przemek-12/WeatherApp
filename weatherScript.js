@@ -30,6 +30,7 @@ window.addEventListener('load', ()=>{
 
             fetch(openweatherUrl)
                 .then(resp=>{
+                    //resp is just an HTTP response, not the actual JSON. To extract the JSON body content from the response, we use the json() method 
                     return resp.json();
                 })
                 .then(dat=>{
@@ -134,6 +135,7 @@ window.addEventListener('load', ()=>{
         
         fetch(darkskyUrl)
             .then((response)=>{
+                console.log(response);
                 return response.json();
             })
             .then((data)=>{

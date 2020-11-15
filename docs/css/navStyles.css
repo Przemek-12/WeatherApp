@@ -1,11 +1,14 @@
 nav{
-    position:relative;
+    position:fixed;
     display:flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.753);
     z-index: 99;
+    height: 60px;
+    top: 0;
+    width: 100vw;
 }
 
 a:hover, a:visited, a:link, a:active{
@@ -16,7 +19,6 @@ a:hover{
 }
 
 #links{
-    float: right;
     display: flex;
     justify-content: space-between;
 }
@@ -24,11 +26,28 @@ a:hover{
     padding: 5%;
 }
 
+#ham {
+    display:none;
+    flex-direction: column;
+    width: 10%;
+    height: 80%;
+    justify-content: space-between;
+}
+#ham div{
+    background-color: white;
+    width: 100%;
+    height: 20%;
+}
+
 @media screen and (max-width: 1000px){
 
     nav{
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    #ham {
+        display:flex;
     }
 
     nav #links{

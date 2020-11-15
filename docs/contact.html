@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="all">
+    <meta name="author" content="przemyslaw.chlebek">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navStyles.css">
+    <link rel="stylesheet" href="css/basicStyles.css">
+    <link rel="stylesheet" href="css/contactStyles.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="script/contactScript.js"></script>
+    <title>Contact</title>
+</head>
+<body>
+    <nav>
+        <div id="ham">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>   
+            <a href="portfolio.html">Portfolio</a>
+        </div>
+    </nav>
+    <section id='section1' class="background">       
+        <div id='formWithInfo'>
+            <div id='cwu'>Contact with us</div>
+            <form id="form">
+                <input id='emailinput' type="text" placeholder="Your Email" required>
+                <input id='topicinput' type="text" placeholder="Topic" required>
+                <textarea id='messageinput' type="text" placeholder="Message" required></textarea>
+                <button type="submit">Send Email</button>
+            </form>
+        </div>     
+    </section>
+</body>
+</html>

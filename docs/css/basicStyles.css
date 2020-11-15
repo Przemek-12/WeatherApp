@@ -44,6 +44,10 @@ input:focus{
     outline:none;
 }
 
+textarea:focus{
+    outline:none;
+}
+
 
 ::-webkit-scrollbar {
 	width: 1vw;
@@ -62,3 +66,12 @@ input:focus{
 	background: rgb(230, 230, 230);
 }
 
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 1;
+}

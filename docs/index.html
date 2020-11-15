@@ -15,28 +15,24 @@
     <script src="script/weatherScript.js"></script>
     <title>WeatherApp</title>
 </head>
-<body>
-        
-    <div id='background'></div>
-
+<body>                    
+    <nav>
+        <div id='formWithBtn'>
+            <form id='form'>
+                <input id='textinput' type="search" placeholder="Search city">
+                <button id="submitbutton" type="submit"><i class="fa fa-search"></i></button>
+            </form> 
+            <button id='myLocationButton'>My Location</button>
+        </div>              
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>   
+            <a href="portfolio.html">Portfolio</a>
+        </div>
+    </nav>
+    <div class='background' id='background'></div>
         <section id="section1">
-            
-            <nav>
-                <form id='form'>
-                    <input id='textinput' type="search" placeholder="Search city">
-                    <button id="submitbutton" type="submit"><i class="fa fa-search"></i></button>
-                </form> 
-                <button id='myLocationButton'>My Location</button>
-
-                <div id="links">
-                    <a href="index.html">Home</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contact.html">Contact</a>   
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="aboutme.html">AboutMe</a>
-                </div>
-            </nav>
-
             <div id='bigContainer'>
                 <div class="container">
                     <div class='containerElement' id="timezone"></div>

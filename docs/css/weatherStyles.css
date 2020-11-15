@@ -1,39 +1,39 @@
-*{
-    box-sizing:border-box;
-    color: white;
-    letter-spacing:0.5px;
-    font-family: 'Nunito Sans', sans-serif;
+#background{
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 1;
 }
-html{
-    scroll-behavior: smooth;
-}
-body{
-    margin:0;
-}
-#section1{
-    position: relative;
-    height:100vh;
-    width:100vw;
-    background-size: 100% 100%;
-    background-repeat:no-repeat;
-}
-#formContainer{
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
+
 #form{
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    padding:5px;
+    position: relative;
+    display:flex;   
+    width:300px;
+    padding-right: 50px;
+    background-color:rgba(183, 186, 199, 0.733);
 }
-.formElement{
-    margin-left:5px;
+#form #textinput{
+    width:100%;
+    position: relative;
+    border-style:none;
+    padding:10px;
+    background:transparent;
 }
+#form #submitbutton{
+    background:transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height:100%;
+    border-style:none;
+}
+
 #bigContainer{
+    margin-top: 2%;
     position:relative;
     display:flex;
     align-items: center;
@@ -74,7 +74,7 @@ body{
     left:48%;
     top:20%;
     font-size:80px;
-    color:rgb(245, 203, 148);
+    color:rgb(255, 248, 244);
 }
 #pressure{
     margin-top:20px;
@@ -103,49 +103,6 @@ body{
 }
 
 
-#textinput{
-    border-style:none;
-    border-radius: 10px;
-    padding:10px;
-    background-color:rgba(183, 186, 199, 0.733);
-}
-
-#submitbutton{
-    height:40px;
-    width:150px;
-    background-color:rgba(183, 186, 199, 0.445);
-    border-style:none;
-}
-
-#submitbutton:hover{
-    background-color:rgba(123, 218, 79, 0.842);
-}
-#submitbutton:active{
-    box-shadow: inset 0px 0px 30px  rgb(175, 177, 212);
-}
-
-input:focus{
-    outline:none;
-}
-
-button:focus{
-    outline:none;
-}
-
-#refreshButton{
-    height:40px;
-    width:90px;
-    background-color:rgba(183, 186, 199, 0.445);
-    border-style:none;
-}
-#refreshButton:hover{
-    background-color:rgba(105, 223, 51, 0.842);
-    box-shadow: inset 0px 0px 30px  rgb(168, 238, 178);
-}
-#refreshButton:active{
-    box-shadow: inset 0px 0px 30px  rgb(175, 177, 212);
-}
-
 #forecastContainer{
     position:relative;
     align-content:center;
@@ -154,14 +111,13 @@ button:focus{
     margin-top:-3%;
     top:18%;
 }
-
-
 .forecastElement{
     position:relative;
     padding:10px;
     border: 1px solid transparent;
     background-color:rgba(150, 164, 185, 0.295);
     width:12%;
+    cursor: pointer;
 }
 
 .forecastElement:hover{
@@ -197,7 +153,6 @@ button:focus{
 #btnHourlyContainer{
     position: relative;
     display:none;
-                        /*border:3px solid green;*/
     top:12%;
     animation:fadein 1s;
 }
@@ -206,11 +161,9 @@ button:focus{
     to{opacity:1;}
 }
 
-
 #hourlyDisplay{
     display:flex;
     position:relative;
-                       /* border:3px solid blue;*/
     overflow:hidden;
     left: 5%;
     width:90%;
@@ -230,26 +183,21 @@ button:focus{
     background-color:rgba(150, 164, 185, 0.295);
 }
 
+.arrowBtn{
+    cursor: pointer;
+    position:absolute;
+    border:2px solid transparent;
+    border-radius: 50%;
+    width:60px;
+    height:60px;
+    top:50%;
+    margin-top:-30px;
+}
 
 #buttonLeft{
-    position:absolute;
-    border:2px solid transparent;
-    border-radius: 50%;
-    width:60px;
-    height:60px;
-    top:50%;
-    margin-top:-30px;
-    left:1.5%;
-    
+    left:1.5%; 
 }
-#buttonRight{
-    position:absolute;
-    border:2px solid transparent;
-    border-radius: 50%;
-    width:60px;
-    height:60px;
-    top:50%;
-    margin-top:-30px;
+#buttonRight{    
     right:1.5%;
 }
 #buttonRight:hover{
@@ -282,8 +230,42 @@ button:focus{
     margin-top:-20px;
 }
 
-
-
 .forecastSummary{ 
     width:100%;
+}
+
+@media screen and (max-width: 1150px){
+
+    #bigContainer{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1500px){
+
+    #forecastContainer{
+        margin-left: 3%;
+        margin-right: 3%;
+        overflow-x: scroll;
+        justify-content: left;
+        margin-bottom: 10%;
+    }
+
+    .forecastElement{
+        width:250px;
+    }
+
+    #hourlyDisplay{
+        margin-bottom: 10%;
+        overflow-x: scroll;
+    }
+
+    .arrowBtn{
+        display:none;
+    }
+
+    .hourlyElement{
+        width: 100px;
+    }
+
 }

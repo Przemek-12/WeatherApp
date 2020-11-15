@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="all">
+    <meta name="author" content="przemyslaw.chlebek">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="weatherStyles.css">
+    <link rel="stylesheet" href="css/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="css/weatherStyles.css">
+    <link rel="stylesheet" href="css/navStyles.css">
+    <link rel="stylesheet" href="css/basicStyles.css">
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
-    <script src="weatherScript.js"></script>
+    <script src="script/weatherScript.js"></script>
     <title>WeatherApp</title>
 </head>
 <body>
+        
+    <div id='background'></div>
+
         <section id="section1">
             
-            <div id='formContainer'>
-            <form id='form'>
-                <input class='formElement' id='textinput' type="text" placeholder="Type city name" name="cityname">
-                <button class='formElement' type="submit" id="submitbutton" >Search City</button>
-            </form> 
-                <button class='formElement' id='refreshButton'>My Location</button>
-            </div>
+            <nav>
+                <form id='form'>
+                    <input id='textinput' type="search" placeholder="Search city">
+                    <button id="submitbutton" type="submit"><i class="fa fa-search"></i></button>
+                </form> 
+                <button id='myLocationButton'>My Location</button>
+
+                <div id="links">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>   
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="aboutme.html">AboutMe</a>
+                </div>
+            </nav>
 
             <div id='bigContainer'>
                 <div class="container">
@@ -34,95 +50,86 @@
                 </div>
                 <div id='map'></div>
             </div>
-            
 
-            <div id="forecastContainer">
-                <div class="forecastElement" id="zero">
-                    <div class='forecastDay' id="zeroDay"></div>
-                    <div class='forecastDate' id="zeroDate"></div>
-                    <div class='forecastIcon' id="zeroIcon"><i id="zeroi" ></i><i id="zeroi2" ></i></div>
-                    <div class='forecastTempMax' id="zeroTempMax"></div>
-                    <div class='forecastTempMin' id="zeroTempMin"></div>
-                    <div class='forecastSummary' id="zeroSummary"></div>
-                    <div class='rotated' id='zeroRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="one">
-                    <div class='forecastDay' id="oneDay"></div>
-                    <div class='forecastDate' id="oneDate"></div>
-                    <div class='forecastIcon' id="oneIcon"><i id="onei" ></i><i id="onei2" ></i></div>
-                    <div class='forecastTempMax' id="oneTempMax"></div>
-                    <div class='forecastTempMin' id="oneTempMin"></div>
-                    <div class='forecastSummary' id="oneSummary"></div>
-                    <div class='rotated' id='oneRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="two">
-                    <div class='forecastDay' id="twoDay"></div>
-                    <div class='forecastDate' id="twoDate"></div>
-                    <div class='forecastIcon' id="twoIcon"><i id="twoi"></i><i id="twoi2"></i></div>
-                    <div class='forecastTempMax' id="twoTempMax"></div>
-                    <div class='forecastTempMin' id="twoTempMin"></div>
-                    <div class='forecastSummary' id="twoSummary"></div>
-                    <div class='rotated' id='twoRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="three">
-                    <div class='forecastDay' id="threeDay"></div>
-                    <div class='forecastDate' id="threeDate"></div>
-                    <div class='forecastIcon' id="threeIcon"><i id="threei"></i><i id="threei2"></i></div>
-                    <div class='forecastTempMax' id="threeTempMax"></div>
-                    <div class='forecastTempMin' id="threeTempMin"></div>
-                    <div class='forecastSummary' id="threeSummary"></div>
-                    <div class='rotated' id='threeRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="four">
-                    <div class='forecastDay' id="fourDay"></div>
-                    <div class='forecastDate' id="fourDate"></div>
-                    <div class='forecastIcon' id="fourIcon"><i id="fouri"></i><i id="fouri2"></i></div>
-                    <div class='forecastTempMax' id="fourTempMax"></div>
-                    <div class='forecastTempMin' id="fourTempMin"></div>
-                    <div class='forecastSummary' id="fourSummary"></div>
-                    <div class='rotated' id='fourRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="five">
-                    <div class='forecastDay' id="fiveDay"></div>
-                    <div class='forecastDate' id="fiveDate"></div>
-                    <div class='forecastIcon' id="fiveIcon"><i id="fivei"></i><i id="fivei2"></i></div>
-                    <div class='forecastTempMax' id="fiveTempMax"></div>
-                    <div class='forecastTempMin' id="fiveTempMin"></div>
-                    <div class='forecastSummary' id="fiveSummary"></div>
-                    <div class='rotated' id='fiveRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="six">
-                    <div class='forecastDay' id="sixDay"></div>
-                    <div class='forecastDate' id="sixDate"></div>
-                    <div class='forecastIcon' id="sixIcon"><i id="sixi"></i><i id="sixi2"></i></div>
-                    <div class='forecastTempMax' id="sixTempMax"></div>
-                    <div class='forecastTempMin' id="sixTempMin"></div>
-                    <div class='forecastSummary' id="sixSummary"></div>
-                    <div class='rotated' id='sixRotated'></div>
-                </div>
-
-                <div class="forecastElement" id="seven">
-                    <div class='forecastDay' id="sevenDay"></div>
-                    <div class='forecastDate' id="sevenDate"></div>
-                    <div class='forecastIcon' id="sevenIcon"><i id="seveni"></i><i id="seveni2"></i></div>
-                    <div class='forecastTempMax' id="sevenTempMax"></div>
-                    <div class='forecastTempMin' id="sevenTempMin"></div>
-                    <div class='forecastSummary' id="sevenSummary"></div>
-                    <div class='rotated' id='sevenRotated'></div>
-                </div>
-            </div>            
+                <div id="forecastContainer">
+                    <div class="forecastElement" id="zero">
+                        <div class='forecastDay' id="zeroDay"></div>
+                        <div class='forecastDate' id="zeroDate"></div>
+                        <div class='forecastIcon' id="zeroIcon"><i id="zeroi" ></i><i id="zeroi2" ></i></div>
+                        <div class='forecastTempMax' id="zeroTempMax"></div>
+                        <div class='forecastTempMin' id="zeroTempMin"></div>
+                        <div class='forecastSummary' id="zeroSummary"></div>
+                        <div class='rotated' id='zeroRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="one">
+                        <div class='forecastDay' id="oneDay"></div>
+                        <div class='forecastDate' id="oneDate"></div>
+                        <div class='forecastIcon' id="oneIcon"><i id="onei" ></i><i id="onei2" ></i></div>
+                        <div class='forecastTempMax' id="oneTempMax"></div>
+                        <div class='forecastTempMin' id="oneTempMin"></div>
+                        <div class='forecastSummary' id="oneSummary"></div>
+                        <div class='rotated' id='oneRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="two">
+                        <div class='forecastDay' id="twoDay"></div>
+                        <div class='forecastDate' id="twoDate"></div>
+                        <div class='forecastIcon' id="twoIcon"><i id="twoi"></i><i id="twoi2"></i></div>
+                        <div class='forecastTempMax' id="twoTempMax"></div>
+                        <div class='forecastTempMin' id="twoTempMin"></div>
+                        <div class='forecastSummary' id="twoSummary"></div>
+                        <div class='rotated' id='twoRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="three">
+                        <div class='forecastDay' id="threeDay"></div>
+                        <div class='forecastDate' id="threeDate"></div>
+                        <div class='forecastIcon' id="threeIcon"><i id="threei"></i><i id="threei2"></i></div>
+                        <div class='forecastTempMax' id="threeTempMax"></div>
+                        <div class='forecastTempMin' id="threeTempMin"></div>
+                        <div class='forecastSummary' id="threeSummary"></div>
+                        <div class='rotated' id='threeRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="four">
+                        <div class='forecastDay' id="fourDay"></div>
+                        <div class='forecastDate' id="fourDate"></div>
+                        <div class='forecastIcon' id="fourIcon"><i id="fouri"></i><i id="fouri2"></i></div>
+                        <div class='forecastTempMax' id="fourTempMax"></div>
+                        <div class='forecastTempMin' id="fourTempMin"></div>
+                        <div class='forecastSummary' id="fourSummary"></div>
+                        <div class='rotated' id='fourRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="five">
+                        <div class='forecastDay' id="fiveDay"></div>
+                        <div class='forecastDate' id="fiveDate"></div>
+                        <div class='forecastIcon' id="fiveIcon"><i id="fivei"></i><i id="fivei2"></i></div>
+                        <div class='forecastTempMax' id="fiveTempMax"></div>
+                        <div class='forecastTempMin' id="fiveTempMin"></div>
+                        <div class='forecastSummary' id="fiveSummary"></div>
+                        <div class='rotated' id='fiveRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="six">
+                        <div class='forecastDay' id="sixDay"></div>
+                        <div class='forecastDate' id="sixDate"></div>
+                        <div class='forecastIcon' id="sixIcon"><i id="sixi"></i><i id="sixi2"></i></div>
+                        <div class='forecastTempMax' id="sixTempMax"></div>
+                        <div class='forecastTempMin' id="sixTempMin"></div>
+                        <div class='forecastSummary' id="sixSummary"></div>
+                        <div class='rotated' id='sixRotated'></div>
+                    </div>
+                    <div class="forecastElement" id="seven">
+                        <div class='forecastDay' id="sevenDay"></div>
+                        <div class='forecastDate' id="sevenDate"></div>
+                        <div class='forecastIcon' id="sevenIcon"><i id="seveni"></i><i id="seveni2"></i></div>
+                        <div class='forecastTempMax' id="sevenTempMax"></div>
+                        <div class='forecastTempMin' id="sevenTempMin"></div>
+                        <div class='forecastSummary' id="sevenSummary"></div>
+                        <div class='rotated' id='sevenRotated'></div>
+                    </div>
+                </div>     
+                 
 
             <div id='btnHourlyContainer'>
-
-            <div id='buttonLeft' class='arrowBtn'><div id='arrow1' class="fas fa-chevron-left"></div></div>
-                <div class="hourlyDisplay" id='hourlyDisplay'>
-                    
+                <div id='buttonLeft' class='arrowBtn'><div id='arrow1' class="fas fa-chevron-left"></div></div>
+                <div class="hourlyDisplay" id='hourlyDisplay'>            
                     <div id='hourlyContainer' class='hourlyContainer'>
                         <div class='hourlyElement' id='1'>      <div class='hourlyHour' id='1hour'></div><div id='1temp'></div><div id='1icon'><i id="1i"></i><i id="1i2"></i></div><div id='1summary'></div><div id='1precipProbability'><i class='fas fa-tint'></i><i id='1pP'></i></div><div id='1windSpeed'><i class='fas fa-location-arrow'></i><i id='1wS'></i></div>  </div>
                         <div class='hourlyElement' id='2'>      <div class='hourlyHour' id='2hour'></div><div id='2temp'></div><div id='2icon'><i id="2i"></i><i id="2i2"></i></div><div id='2summary'></div><div id='2precipProbability'><i class='fas fa-tint'></i><i id='2pP'></i></div><div id='2windSpeed'><i class='fas fa-location-arrow'></i><i id='2wS'></i></div>  </div>
@@ -148,11 +155,9 @@
                         <div class='hourlyElement' id='22'>     <div class='hourlyHour' id='22hour'></div><div id='22temp'></div><div id='22icon'><i id="22i"></i><i id="22i2"></i></div><div id='22summary'></div><div id='22precipProbability'><i class='fas fa-tint'></i><i id='22pP'></i></div><div id='22windSpeed'><i class='fas fa-location-arrow'></i><i id='22wS'></i></div>  </div>
                         <div class='hourlyElement' id='23'>     <div class='hourlyHour' id='23hour'></div><div id='23temp'></div><div id='23icon'><i id="23i"></i><i id="23i2"></i></div><div id='23summary'></div><div id='23precipProbability'><i class='fas fa-tint'></i><i id='23pP'></i></div><div id='23windSpeed'><i class='fas fa-location-arrow'></i><i id='23wS'></i></div>  </div>
                         <div class='hourlyElement' id='24'>     <div class='hourlyHour' id='24hour'></div><div id='24temp'></div><div id='24icon'><i id="24i"></i><i id="24i2"></i></div><div id='24summary'></div><div id='24precipProbability'><i class='fas fa-tint'></i><i id='24pP'></i></div><div id='24windSpeed'><i class='fas fa-location-arrow'></i><i id='24wS'></i></div>  </div>
-                    </div>
-                    
+                    </div>         
                 </div>
-            <div id='buttonRight' class='arrowBtn'><div id='arrow2' class='fas fa-chevron-right'></div></div>
-
+                <div id='buttonRight' class='arrowBtn'><div id='arrow2' class='fas fa-chevron-right'></div></div>
             </div>
             
             

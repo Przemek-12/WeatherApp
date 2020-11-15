@@ -27,6 +27,7 @@ a:hover{
 }
 
 #ham {
+    margin-top: 5px;
     display:none;
     flex-direction: column;
     width: 10%;

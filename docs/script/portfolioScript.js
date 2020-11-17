@@ -1,6 +1,6 @@
 window.addEventListener('load', ()=>{
    
-    var folder = "media/portfolio/";
+    var folder = "docs/media/portfolio/";
 
     for(var i=1; i<15; i++){
         console.log(folder + i+'.jpg')
@@ -11,7 +11,7 @@ window.addEventListener('load', ()=>{
         var lightboxDisplay = $('#lightbox').css('display');
         if(lightboxDisplay==='none'){
             $('#lightbox').css('display', 'flex');
-            $('#lightboxImg').css('background-image', "url('media/portfolio/"+item.target.id+".jpg')");
+            $('#lightboxImg').css('background-image', "url('"+folder+item.target.id+".jpg')");
 
         }
         else{

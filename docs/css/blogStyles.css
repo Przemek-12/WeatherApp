@@ -1,3 +1,7 @@
+#background{
+    background-image: url('media/blog.jpg');
+}
+
 #section1{
     display: flex;
     align-items: flex-start;
@@ -16,12 +20,26 @@ main{
     width:60%;
     align-items: center;
     justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.473);
 }
 
 article{
     height: 300px;
     display: flex;
     overflow-y: hidden
+}
+article:hover{
+    cursor: pointer;
+    background-color:rgba(155, 155, 155, 0.438);
+}
+article:active{
+    background-color:rgb(155, 235, 140);
+}
+article:active p{
+    color:white;
+}
+article:active h2{
+    color:white;
 }
 
 .text{

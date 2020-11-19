@@ -4,7 +4,7 @@ window.addEventListener('load', ()=>{
 
     for(var i=1; i<15; i++){
         console.log(folder + i+'.jpg')
-        $("main").append( "<img id='"+i+"' src='"+ folder + i+'.jpg'+"'>" );
+        $("main").append( "<img id='"+i+"' src='"+ folder + i+".jpg'>" );
     }
 
     $('img').click((item)=>{

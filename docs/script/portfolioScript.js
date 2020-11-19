@@ -1,6 +1,6 @@
 window.addEventListener('load', ()=>{
    
-    var folder = "portfolio.html/docs/media/portfolio/";
+    var folder = "./media/portfolio/";
 
     for(var i=1; i<15; i++){
         console.log(folder + i+'.jpg')
